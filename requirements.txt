@@ -1,5 +1,5 @@
-tgcalls==3.0.0.dev6
-pytgcalls==3.0.0.dev19
+git+https://github.com/pytgcalls/tgcalls@dev
+git+https://github.com/pytgcalls/pytgcalls@dev
 python-dotenv
 youtube-search-python
 tgcrypto
