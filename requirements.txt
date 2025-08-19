@@ -1,3 +1,4 @@
+git+https://github.com/pytgcalls/tgcalls@dev
 pytgcalls==3.0.0.dev19
 python-dotenv
 youtube-search-python
