@@ -14,6 +14,11 @@ COPY . .
 # Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements.txt
+# Install tgcalls first
+RUN pip install --no-cache-dir tgcalls==3.0.0.dev6
+
+# Then install requirements but ignore deps
+RUN pip install --no-cache-dir --no-deps pytgcalls==3.0.0.dev19
 
 # Start the bot
 CMD ["python3", "-m", "VideoxD"]
