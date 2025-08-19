@@ -1,22 +1,19 @@
-FROM debian:stable-slim
+FROM python:3.11-slim
 
-# Install Python and tools
+# Install system dependencies (for some Python packages)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 python3-venv python3-pip build-essential git curl \
+    ffmpeg git curl build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Reinstall pip cleanly
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3
-
-# Upgrade pip, setuptools, wheel
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
+# Set working directory
+WORKDIR /app
 
 # Copy project files
-WORKDIR /app
 COPY . .
 
 # Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Start app
+# Start the bot
 CMD ["python3", "-m", "VideoxD"]
