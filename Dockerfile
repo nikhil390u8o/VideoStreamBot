@@ -1,11 +1,11 @@
 FROM debian:stable-slim
 
-# Install Python, pip, and build tools
+# Install Python and tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-venv python3-pip build-essential git curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Reinstall pip cleanly
+# Reinstall pip cleanly (corrected URL)
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3
 
 # Upgrade pip, setuptools, wheel
